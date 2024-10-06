@@ -32,20 +32,20 @@ $skip_link_url = apply_filters( 'hello_elementor_skip_link_url', '#content' );
                 </a>
                 </div>    
             </div>
+    
+    
+    <div class="menu">
+        <nav>
+            <ul>
+                <li><a href="http://localhost/Planty/wordpress/nous-rencontrer/" class="menu-link"> Nous rencontrer </a></li> 
+                <li class="admin-link"><?php display_admin_link();  ?></li>
+                <li><a href="http://localhost/Planty/wordpress/commander/" class="commander">Commander</a></li> 
+            </ul>
+        </nav>    
+    </div>
+    
             
-            <div class="menu">
-                <nav>
-                    <ul>
-                        <li><a href="http://localhost/Planty/wordpress/nous-rencontrer/" class="menu-link"> Nous rencontrer </a></li> 
-                        <?php display_admin_link();  ?>
-						<li><a href="http://localhost/Planty/wordpress/commander/" class="commander">Commander</a></li> 
-                    </ul>
-                
-                </nav>    
-            </div>
-        
-            
-        </header>
+    </header>
 <body <?php body_class(); ?>>
 
 <?php wp_body_open(); ?>
