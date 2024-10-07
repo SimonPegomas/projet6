@@ -577,7 +577,6 @@ li {
   background: transparent;
 }
 
-/* header */
 
 /* header */
 
@@ -597,7 +596,6 @@ header {
   display: flex;
   align-items: center;
 }
-
 /* Style du logo */
 .logo img {
   height: 20px; /* Hauteur réduite du logo */
@@ -660,6 +658,55 @@ header {
   color: #fff; /* Couleur du texte au survol */
   transform: scale(1.05); 
 }
+
+/* Media query pour les écrans de moins de 768px */
+@media (max-width: 768px) {
+
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrer le logo */
+    padding: 10px;
+  }
+
+  /* Logo centré en haut */
+  .container-logo {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centrer le logo */
+    margin-bottom: 20px;
+  }
+
+  /* Menu sur une seule ligne avec espace entre les éléments */
+  .menu ul {
+    display: flex;
+    justify-content: space-between; /* "Nous rencontrer" à gauche, "Commander" à droite */
+    width: 100%;
+    padding: 0 1px; /* Ajustement de l'espacement horizontal */
+    margin: 1px;
+  }
+
+  .menu ul li {
+    flex-basis: 50%; /* Chaque élément prend 50% de l'espace disponible */
+    text-align: center; /* Centrer le texte dans chaque élément */
+    font-size: 10px;
+  }
+
+  .menu ul li:first-child {
+    text-align: left; /* "Nous rencontrer" à gauche */
+  }
+
+  .menu ul li:last-child {
+    text-align: right; /* "Commander" à droite */
+  }
+
+  /* Masquer le lien admin si besoin */
+  .admin-link {
+    display: none;
+  }
+}
+
+
 /* Short Code Bottle */
 .container {
   position: relative;
@@ -686,6 +733,38 @@ header {
   z-index: 3;  
 }
 
+/* Style au survol du bouton "Commander" */
+.menu ul li a.commander:hover {
+  background-color:#C02E44;
+  ; 
+  color: #fff; /* Couleur du texte au survol */
+  transform: scale(1.05); 
+}
+/* Short Code Bottle */
+.container {
+  position: relative;
+  width: 100%; /* S'adapte à la largeur du parent */
+  height: 0;
+  padding-bottom: 30%;
+}
+
+.BranchLeft {
+  position: absolute;
+  width: 250px;
+  height : auto; 
+  top: 19%; 
+  left: 36.5%;  
+  z-index: 1;  
+}
+
+.Bottle {
+  position: absolute;
+  width: 250px;
+  height : auto; 
+  top: 10%;  /* Ajustement de la position verticale pour centrer correctement */
+  left: 43%; /* Centre horizontalement */
+  z-index: 3;  
+}
 .BranchRight {
   position: absolute;
   width: 250px;
@@ -694,8 +773,199 @@ header {
   left: 49.5%; 
   z-index: 2;  
 }
+/* Réduction de la taille de l'image par 3 pour les écrans de moins de 320px */
+@media (max-width: 320px) {
+  img {
+    width: 100px; /* Réduction de l'image par 3 */
+    height: auto; /* Conserve les proportions */
+  }
+}
 
-/* Form */ 
+/* Formualaire de commande*/ 
+
+/* Style global du formulaire */
+.custom-form {
+  background-color: #3B8E46;
+  padding: 20px;
+  border-radius: 8px;
+  color: white;
+}
+
+/* Section produits */
+.product-section {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.product-item {
+  display: flex;
+  flex-direction: column; /* Aligne l'image et le champ verticalement */
+  align-items: center; /* Centre le contenu horizontalement */
+  text-align: center;
+  flex-basis: 23%; /* Chaque image prend une part égale de l'espace */
+}
+
+.product-item img {
+  width: 250px; /* Taille des images */
+  height: 250px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.product-item input[type="number"] {
+  width: 40px; /* Réduction de la largeur des champs */
+  height: 50px;
+  padding: 2px; /* Réduction du padding pour les rendre plus compacts */
+  border-radius: 2px;
+  border: none;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 5px; /* Espace entre l'image et le champ */
+}
+
+/* Trait de séparation */
+.form-separator {
+  border: 0;
+  border-top: 1px solid white;
+  margin: 20px 0;
+}
+
+/* Section deux colonnes */
+.two-columns {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.column-left, .column-right {
+  width: 48%;
+}
+
+.column-left {
+  padding-right: 20px;
+}
+
+.column-right {
+  padding-left: 20px;
+}
+
+/* Séparation blanche verticale entre les colonnes */
+.two-columns::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background-color: white;
+  height: 100%;
+}
+
+/* Titres des colonnes */
+h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: white;
+}
+
+/* Labels et champs */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  height: 50px;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+/* Bouton de soumission */
+.submit-section {
+  text-align: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.wpcf7-submit {
+  background-color: #E0B9B4;
+  color: white !important;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  display: inline-block; /* S'assure que le bouton prend seulement la largeur nécessaire */
+  margin-right: 45%;
+}
+
+.wpcf7-form-control {
+  color: white !important ;
+}
+
+input[type="submit"]:hover {
+  background-color: #C02E44;
+  color: white; 
+}
+
+	/* Formulaire de Contact */
+	
+	
+/* Style des labels */
+.contact-form label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    margin-bottom: 20px; /* Ajout d'un peu plus d'espace entre les champs */
+    border: none; /* Suppression des bordures */
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Optionnel : ajout d'une légère ombre pour l'effet visuel */
+    box-sizing: border-box; /* S'assure que la largeur inclut le padding */
+}
+
+/* Style spécifique pour le champ de message (plus grand) */
+.contact-form textarea {
+  height: 200px; /* Ajusté à 3 fois la taille des autres champs */
+}
+
+/* Style du bouton Envoyer */
+.contact-form input[type="submit"] {
+  background-color: #E0B9B4;
+  color: white !important ; 
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  margin: 0 auto; /* Centrer le bouton */
+  transition: background-color 0.3s ease;
+}
+
+/* Hover du bouton Envoyer */
+.contact-form input[type="submit"]:hover {
+  background-color: #C02E44;
+}
+
+
 
 /* Style global du formulaire */
 .custom-form {
@@ -820,4 +1090,87 @@ input[type="submit"]:hover {
   background-color: #C02E44;
   ;
 }
+
+@media screen and (max-width: 600px) {
+
+  /* Section produits en colonne */
+  .product-section {
+    flex-direction: column; /* Change la direction de l'affichage en colonne */
+    align-items: center; /* Centre les éléments */
+  }
+
+  .product-item {
+    width: 100%; /* Les éléments prennent toute la largeur */
+    margin-bottom: 20px; /* Ajoute de l'espace entre chaque produit */
+  }
+
+  .product-item img {
+    width: 80%; /* Réduit la taille des images pour les petits écrans */
+    height: auto; /* Ajuste la hauteur automatiquement */
+  }
+
+  .product-item input[type="number"] {
+    width: 100%; /* Champs de saisie prennent toute la largeur */
+    max-width: 300px; /* Limite la largeur maximale */
+    height: 250px; /* Hauteur du champ */
+  }
+
+  /* Section informations personnelles et livraison en colonne */
+  .two-columns {
+    flex-direction: column; /* Les colonnes sont empilées */
+    justify-content: center; /* Centre les éléments */
+  }
+
+  .column-left, .column-right {
+    width: 100%; /* Les colonnes prennent toute la largeur */
+    padding: 0; /* Enlève le padding horizontal */
+  }
+  .column-right {
+    margin-left: 20%;
+
+  }
+
+  .column-left{
+    margin-left: 25%;
+  }
+.wpcf7-form-control-wrap{
+  width: 100%; /* Les champs prennent toute la largeur */
+  width: 300px  !important ;
+}
+  /* Enlève la séparation blanche entre les colonnes sur petit écran */
+  .two-columns::before {
+    display: none;
+  }
+
+  /* Champs texte en pleine largeur */
+  input[type="text"],
+  input[type="email"] {
+    width: 100%; /* Champs prennent toute la largeur */
+    box-sizing: border-box; /* Pour inclure le padding dans la largeur totale */
+  }
+
+  /* Labels centrés */
+
+  H2 {
+    text-align: center;
+  }
+  label {
+    text-align: center; /* Centre le texte des labels */
+    display: block; /* Assure que le label prend toute la largeur */
+    width: 100%;
+  }
+
+  /* Bouton de soumission */
+  .submit-section {
+    text-align: center; /* Centre le bouton de soumission */
+  }
+
+  input[type="submit"] {
+    width: 100%; /* Le bouton prend toute la largeur sur mobile */
+    max-width: 300px; /* Limite la largeur maximale */
+  }
+
+  
+}
+
 
